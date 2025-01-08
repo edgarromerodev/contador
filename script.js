@@ -1,38 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-document.getElementById("aumentar").addEventListener("click", aumentarValor)
-document.getElementById("disminuir").addEventListener("click", disminuirValor)
-document.getElementById("reestablecer").addEventListener("click", reestablecerValor)
-
+const botonAumentar = document.getElementById("aumentar")
+const botonDisminuir = document.getElementById("disminuir")
+const botonRestablecer = document.getElementById("restablecer")
 const mostrarValorContador = document.getElementById("contador")
-let valorContador = 0;
-function cambiarColor () {
-  if (valorContador > 0) {
-    contador.style.color = "green"
-  } else if (valorContador < 0) {
-    contador.style.color = "red"
-  }  else {
-    contador.style.color = "black"
-  }
-}
 
+let contador = 0;
 
-function aumentarValor () {
-  valorContador++;
-  mostrarValorContador.textContent = valorContador
-  cambiarColor()
-}
-
-function disminuirValor () {
-  valorContador--;
-  mostrarValorContador.textContent = valorContador
-  cambiarColor()
-}
-
-function reestablecerValor () {
-  valorContador = 0;
-  mostrarValorContador.textContent =  valorContador 
-  cambiarColor()
-}
-
+botonAumentar.addEventListener("click", function aumentarValor(){
+     contador = contador + 1;
+     actualizarContador();
 })
+
+botonDisminuir.addEventListener("click", function disminuirValor(){
+    contador = contador -1;
+    actualizarContador();
+})
+
+botonRestablecer.addEventListener("click", function restablecerValor () {
+    contador = 0;
+    actualizarContador();
+} )
+function actualizarContador () {
+    mostrarValorContador.textContent = contador;
+}
